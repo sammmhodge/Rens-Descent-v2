@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class MovementInput : MonoBehaviour
 {
+    public static MovementInput Instance;
     //Jumping variables
     bool canJump, isJumping;
     public bool canDoubleJump;
@@ -35,6 +36,14 @@ public class MovementInput : MonoBehaviour
     public bool offGroundl;
     bool isDead;
 
+    /*
+        shield anim states 
+        0 - ShieldActivate
+        1 - shieldon
+        2 - shield break
+    */
+    public Animator shieldAnim;
+
     //Score
     public ScoreManager _scoreManager; 
 
@@ -57,6 +66,7 @@ public class MovementInput : MonoBehaviour
         canDoubleJump = false;
         anim = GetComponent<Animator>();
         anim.SetInteger("animState", 4);
+        Instance = this;
         
     }
 
@@ -80,6 +90,14 @@ public class MovementInput : MonoBehaviour
         if(pausePanel == null)
         {
             pausePanel = _scoreManager.gameObject.GetComponent<PauseMenu>()._pausePanel;
+        }
+        if (shieldAnim == null)
+        {
+            foreach(Transform child in transform)
+            {
+                Debug.Log(child);
+                if (child.name == "PlayerShield") shieldAnim = child.gameObject.GetComponent<Animator>();
+            }    
         }
 
         //horizontal movement 
@@ -176,8 +194,7 @@ public class MovementInput : MonoBehaviour
             if (invuln) Debug.Log("invuln");
             else if (shield)
             {
-                shield = false;
-                _shield.SetActive(false);
+                DisableShield();
             }
             else StartCoroutine(respawn());
         }
@@ -240,8 +257,7 @@ public class MovementInput : MonoBehaviour
 
     public void DisableShield()
     {
-        shield = false;
-        _shield.SetActive(false);
+        StartCoroutine(breakShield());
     }
     
     public void startInvincibility()
@@ -256,5 +272,13 @@ public class MovementInput : MonoBehaviour
         yield return new WaitForSeconds(timeInvuln);
         invuln = false;
         _invuln.SetActive(false);
+    }
+
+    IEnumerator breakShield()
+    {
+        shieldAnim.SetBool("isBroken", true);
+        yield return new WaitForSeconds(1f);
+        shield = false;
+        _shield.SetActive(false);
     }
 }
