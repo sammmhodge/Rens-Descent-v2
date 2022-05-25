@@ -247,6 +247,7 @@ public class MovementInput : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         yield return new WaitForSeconds(0.25f);
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        Debug.Log("Finished respawn");
     }
 
     public void ActivateShield()
