@@ -361,6 +361,7 @@ GameObject:
   - component: {fileID: 84158992}
   - component: {fileID: 84158991}
   - component: {fileID: 84158990}
+  - component: {fileID: 84158993}
   m_Layer: 5
   m_Name: Time
   m_TagString: Untagged
@@ -429,6 +430,21 @@ RectTransform:
   m_AnchoredPosition: {x: 70.9, y: 518.3}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &84158993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84158989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1001 &107393974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2043,6 +2059,7 @@ GameObject:
   - component: {fileID: 571686210}
   - component: {fileID: 571686211}
   - component: {fileID: 571686212}
+  - component: {fileID: 571686213}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -2111,6 +2128,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
+--- !u!114 &571686213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571686209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &582192036
 GameObject:
   m_ObjectHideFlags: 0
@@ -5407,7 +5439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 1231103349}
+  m_FirstSelected: {fileID: 582192036}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1514410123
