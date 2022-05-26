@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 public class MainMenuController : MonoBehaviour
 {
-    public GameObject Ren, startAnimation, titleCard, scorePanel;
+    public GameObject Ren, startAnimation, titleCard, scorePanel, pauseMenu, resumeButton;
     public GameObject[] buttons;
+    bool mainMenuOver = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,12 +20,18 @@ public class MainMenuController : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        
+    }
+
     public void play()
     {
         titleCard.SetActive(false);
         for (int i = 0; i < buttons.Length; i++) buttons[i].SetActive(false);
         startAnimation.SetActive(true);
         StartCoroutine(startPlayer());
+        mainMenuOver = true;
     }
 
     IEnumerator startPlayer()
