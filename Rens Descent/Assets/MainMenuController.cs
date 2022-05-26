@@ -12,7 +12,7 @@ public class MainMenuController : MonoBehaviour
         Time.timeScale = 0f;
         scorePanel.SetActive(false);
         startAnimation.SetActive(false);
-        titleCard.SetActive(false);
+        titleCard.SetActive(true);
         Ren.SetActive(false);
         for (int i = 0; i < buttons.Length; i++) buttons[i].SetActive(true);
 
@@ -22,5 +22,21 @@ public class MainMenuController : MonoBehaviour
     {
         titleCard.SetActive(false);
         for (int i = 0; i < buttons.Length; i++) buttons[i].SetActive(false);
+        startAnimation.SetActive(true);
+        StartCoroutine(startPlayer());
+    }
+
+    IEnumerator startPlayer()
+    {
+        yield return new WaitForSecondsRealtime(2.5f);
+        Ren.SetActive(true);
+        scorePanel.SetActive(true);
+        Time.timeScale = 1f;
+        gameObject.SetActive(false);
+    }
+
+    public void quit()
+    {
+        Application.Quit();
     }
 }
