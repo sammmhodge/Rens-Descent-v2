@@ -30,7 +30,6 @@ public class CheckpointManager : MonoBehaviour
     {
         for (int i = 0; i < RespawnObjects.Length; i++)
         {
-            Debug.Log("runnin innit");
             if(RespawnObjects[i] != null) RespawnObjects[i].SetActive(true);
         }
     }
