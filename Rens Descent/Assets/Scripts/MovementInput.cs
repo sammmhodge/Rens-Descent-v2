@@ -102,8 +102,9 @@ public class MovementInput : MonoBehaviour
 
         //horizontal movement 
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
-        transform.position += movement * Time.deltaTime * speed;
-
+        if(!isDead) transform.position += movement * Time.deltaTime * speed;
+        if (isDead) rb.gravityScale = 0f;
+        else rb.gravityScale = 0.3f;
         //animation checks
         if (!paused)
         {
@@ -227,10 +228,12 @@ public class MovementInput : MonoBehaviour
     public IEnumerator respawn()
     {
         anim.SetInteger("animState", 6);
+        rb.gravityScale = 0f;
         isDead = true;
         yield return new WaitForSeconds(0.5f);
         isDead = false;
         yield return new WaitForSeconds(0.3f);
+        
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         transform.position = _resetPoint.position;
         _scoreManager.GetComponent<ScoreManager>().score -= 100;

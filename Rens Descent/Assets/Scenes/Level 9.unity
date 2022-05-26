@@ -9730,7 +9730,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7541068317470624178, guid: c50756d8853b2944a83d92d20414fa64, type: 3}
       propertyPath: nextLevel
-      value: 1
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7541068317470624178, guid: c50756d8853b2944a83d92d20414fa64, type: 3}
       propertyPath: _scoreManager
